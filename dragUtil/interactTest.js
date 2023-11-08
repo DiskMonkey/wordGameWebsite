@@ -1,4 +1,4 @@
-const interact = require('interactjs')
+import interact from '../node_modules/interactjs'
 
 const boogie = interact('.boogie')
 boogie.draggable({

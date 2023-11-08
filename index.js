@@ -4,9 +4,12 @@ var startWebServer = function startWebServer()
 	const path = require('path');
 	
 	const app = express();
-	const port = process.env.PORT || 3000;
+	const port = process.env.PORT || 80;
 
+	
+	
 	app.use(express.static(path.join(__dirname, 'dragUtil')));
+
 
 	// add folders to be possibly sent using the below format: 
 	// app.use(express.static(path.join(__dirname, 'webSocket')));
