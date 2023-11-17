@@ -1,5 +1,5 @@
 // Make the DIV element draggable:
-dragElement(document.getElementById("mydiv"));
+
 // dragElement(document.getElementById("boog"));
 
 function dragElement(elmnt) {
