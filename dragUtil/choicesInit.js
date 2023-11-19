@@ -1,10 +1,19 @@
-containerElem = document.getElementById("container")
+var NUM_ANSWERS = 5 //TODO: make this choosable by client on prev page
+containerElem = document.getElementById("containerAnswers")
 
-//TODO: actually initialize the choices elems here for any number of choices
-
-var children = containerElem.children;
-for (var i = 0; i < children.length; i++)
+for (var i = 0; i < NUM_ANSWERS; i++)
 {
-    var choiceContainer = children[i]; //each choice container has only one child
-    //choiceContainer.children[0].style.position = 'absolute';
+    var singleAnswerContainer = document.createElement("div")
+    singleAnswerContainer.id = i + "answer"
+    singleAnswerContainer.className = "singleAnswerContainer"
+
+    var draggableAnswer = document.createElement("div")
+    draggableAnswer.className = "answers"
+    var testContent = document.createTextNode("test" + i)
+    draggableAnswer.appendChild(testContent)
+
+    singleAnswerContainer.appendChild(draggableAnswer)
+
+    containerElem.appendChild(singleAnswerContainer)
+
 }
