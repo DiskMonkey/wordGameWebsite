@@ -1,3 +1,5 @@
+const { default: interact } = require("interactjs");
+
 const answers = interact('.answers')
 answers.draggable({
 	origin: 'self',                   // (0, 0) will be the element's top-left
@@ -23,8 +25,22 @@ answers.draggable({
 			}
 
 		}
-	}
+	},
+
 })
+
+
+const chosenSlot = interact('chosenSlot')
+chosenSlot.dropzone({
+    ondrop: function (event) {
+      alert(event.relatedTarget.id
+            + ' was dropped into '
+            + event.target.id)
+    }
+  })
+  .on('dropactivate', function (event) {
+    event.target.classList.add('drop-activated')
+  })
 
 function prevent(e)
 {
@@ -33,8 +49,6 @@ function prevent(e)
 
 function elementDrag(event, elem)
 {
-
-
 	const position = { pos1: 0, pos2: 0, pos3: (elem.clientWidth + elem.clientLeft) / 2, pos4: (elem.clientHeight + elem.clientTop) / 2 }
 
 	position.pos1 = position.pos3 - event.clientX;
