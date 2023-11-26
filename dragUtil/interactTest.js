@@ -1,5 +1,3 @@
-const { default: interact } = require("interactjs");
-
 const answers = interact('.answers')
 answers.draggable({
 	origin: 'self',                   // (0, 0) will be the element's top-left
@@ -30,17 +28,20 @@ answers.draggable({
 })
 
 
-const chosenSlot = interact('chosenSlot')
-chosenSlot.dropzone({
-    ondrop: function (event) {
-      alert(event.relatedTarget.id
-            + ' was dropped into '
-            + event.target.id)
-    }
-  })
-  .on('dropactivate', function (event) {
-    event.target.classList.add('drop-activated')
-  })
+const answerSlot = interact('.answerSlot')
+answerSlot.dropzone({
+	ondrop: function (event)
+	{
+		console.log(event)
+		alert(event.relatedTarget.id
+			+ ' was dropped into '
+			+ event.target.id)
+	}
+})
+	.on('dropactivate', function (event)
+	{
+		event.target.classList.add('drop-activated')
+	})
 
 function prevent(e)
 {

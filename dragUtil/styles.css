@@ -1,9 +1,10 @@
 #containerAnswers {
   user-select: none;
-  height: 10%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center; /* To align vertically, if needed */
+
 }
 .singleAnswerContainer {
   background-color: rosybrown;
@@ -12,4 +13,17 @@
   height: 30px;
   width: 30px;
   border: thick ridge black;
+}
+#slotParent{
+  display: flex;
+  /* background-color: gray; */
+  justify-content: center;
+  align-items: center;
+}
+.answerSlot{
+  background-color: lightgray;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+  font-size: large;
 }
