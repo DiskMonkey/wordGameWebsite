@@ -42,6 +42,11 @@ answerSlot.dropzone({
 	{
 		event.target.classList.add('drop-activated')
 	})
+	.snap({
+		targets: [
+			{ x: 0, y: 0 },
+		],
+	})
 
 function prevent(e)
 {
