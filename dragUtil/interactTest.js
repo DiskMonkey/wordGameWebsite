@@ -1,7 +1,35 @@
+let slotParent = document.getElementById("slotParent")
+let slotChildren = slotParent.children
+let snapTargets = [returnToSender]
+for (var i = 0; i < slotChildren.length; i++)
+{
+	var slot = slotChildren[i];
+
+	if (slot.className == 'slotBreak')
+	{
+		continue
+	}
+
+	var rect = slot.getBoundingClientRect()
+	snapTargets.push({ x: rect.left + window.scrollX, y: rect.top + window.scrollY, range: 40 }) //todo: make these numbers point to center of rect
+}
+
+function returnToSender()
+{
+	//todo: returns the original pixel location of the word, using element.id
+}
+
+const snapToSlot = interact.modifiers.snap({
+	origin: {x: 0, y: 0},
+	endOnly: true,
+	targets: snapTargets,
+})
+
 const answers = interact('.answers')
 answers.draggable({
-	origin: 'self',                   // (0, 0) will be the element's top-left
+	origin: 'self',
 	inertia: true,                    // start inertial movement if thrown
+	modifiers: [snapToSlot],
 	listeners: {
 		start(event)
 		{
@@ -42,11 +70,10 @@ answerSlot.dropzone({
 	{
 		event.target.classList.add('drop-activated')
 	})
-	.snap({
-		targets: [
-			{ x: 0, y: 0 },
-		],
-	})
+
+
+
+
 
 function prevent(e)
 {

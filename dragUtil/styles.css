@@ -4,12 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center; /* To align vertically, if needed */
-
+  background-color: antiquewhite;
 }
 .singleAnswerContainer {
   background-color: rosybrown;
   padding: 10px;
-
   height: 30px;
   width: 30px;
   border: thick ridge black;
@@ -32,7 +31,7 @@
   height: fit-content;
   width: fit-content;
   padding: 10px;
-  border-right-color: thick black;
+  border-right-color:black;
 
   font-size: large;
 
