@@ -19,7 +19,7 @@ answers.draggable({
 			if (!checkVisible(elem))
 			{
 				console.log("Offscreen elem")
-				//TODO: Return elem to initial position
+				//TODO: Return elem to initial position.
 			}
 
 		}
