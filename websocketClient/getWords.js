@@ -1,4 +1,5 @@
 var ws;
+var sendMessage = true;
 
 initWebSocket().then(function (wsLocal)
 {
@@ -11,5 +12,9 @@ initWebSocket().then(function (wsLocal)
 
 function onReceive(data) {
     console.log("Unsigned Data: " + data)
-    ws.send("Springy")
+    if (sendMessage)
+    {
+        sendMessage = !sendMessage
+        ws.send("Springy")
+    }
 }
