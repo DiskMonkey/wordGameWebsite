@@ -1,4 +1,4 @@
-var NUM_ANSWERS = 5 //TODO: make this choosable by client on prev page
+var NUM_ANSWERS = 3 //TODO: make this choosable by client on prev page
 containerElem = document.getElementById("containerAnswers")
 
 for (var i = 0; i < NUM_ANSWERS; i++)
