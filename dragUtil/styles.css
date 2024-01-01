@@ -9,13 +9,19 @@
 .singleAnswerContainer {
   background-color: rosybrown;
   padding: 10px;
-  height: 30px;
-  width: 30px;
+  min-height: 20px;
+  min-width: 70px;
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
   border: thick ridge black;
 }
 .answers {
-  background-color: rgb(188, 143, 188);
+  background-color: rgb(232, 189, 232);
   z-index: 1; /*needs to be greater than z-index of answerSlot */
+  font-size: 1vw;
+  height: fit-content;
+  width: fit-content;
 }
 
 #slotParent{
@@ -30,7 +36,10 @@
   background-color: lightgray;
   height: fit-content;
   width: fit-content;
-  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-right-color:black;
 
   font-size: large;

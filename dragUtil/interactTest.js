@@ -11,7 +11,7 @@ for (var i = 0; i < slotChildren.length; i++)
 	}
 
 	var rect = slot.getBoundingClientRect()
-	snapTargets.push({ x: rect.left + window.scrollX, y: rect.top + window.scrollY, range: 40 }) //todo: make these numbers point to center of rect
+	snapTargets.push({ x: ((rect.left + rect.right) / 2) + window.scrollX, y: ((rect.top + rect.bottom) / 2) + window.scrollY, range: 75 })
 }
 
 function returnToSender()
@@ -36,7 +36,7 @@ answers.draggable({
 			const elem = event.target
 			elem.style.position = 'absolute';
 			document.onmousemove = prevent
-			console.log(event)
+			// console.log(event)
 		},
 		move(event)
 		{
@@ -50,6 +50,10 @@ answers.draggable({
 				//TODO: Return elem to initial position.
 			}
 
+			if (event.dragLeave != null)
+			{
+				setSlotEmpty(event.dragLeave.id.slice(4))
+			}
 		}
 	},
 
@@ -60,10 +64,18 @@ const answerSlot = interact('.answerSlot')
 answerSlot.dropzone({
 	ondrop: function (event)
 	{
-		console.log(event)
-		alert(event.relatedTarget.id
-			+ ' was dropped into '
-			+ event.target.id)
+		// console.log(event)
+		// alert(event.relatedTarget.id
+		// 	+ ' was dropped into '
+		// 	+ event.target.id)
+
+
+		setSlotOccupied(event.target.id.slice(4), event.relatedTarget.innerHTML)
+
+		if (isAllSlotsOccupied())
+		{
+			checkSolution()
+		}
 	}
 })
 	.on('dropactivate', function (event)
