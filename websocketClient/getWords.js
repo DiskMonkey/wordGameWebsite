@@ -33,7 +33,7 @@ function onReceive(data) {
             break
         case "check3response":
             console.log("code here")
-            breakn
+            break
         default:
             console.log("Unknown Code: ", parsedJson['code'])
     }
