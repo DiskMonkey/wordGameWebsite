@@ -4,7 +4,7 @@ var startWebServer = function startWebServer()
 	const path = require('path');
 
 	const app = express();
-	const port = process.env.PORT || 80;
+	const port = process.env.PORT || 8080;
 
 
 
