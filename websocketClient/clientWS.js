@@ -2,7 +2,7 @@ function initWebSocket()
 {
 	return new Promise(function (resolve, reject)
 	{
-		var ws = new WebSocket('ws://172.31.27.235:5050');
+		var ws = new WebSocket('ws://3.91.255.112:5050'); //need to use wss when i upgrade to https
 		ws.onopen = () =>
 		{
 			console.log('Connection opened!');
