@@ -2,7 +2,7 @@ function initWebSocket()
 {
 	return new Promise(function (resolve, reject)
 	{
-		var ws = new WebSocket('ws://3.91.255.112:5050');
+		var ws = new WebSocket('ws://ec2-3-91-255-112.compute-1.amazonaws.com:5050');
 		ws.onopen = () =>
 		{
 			console.log('Connection opened!');
