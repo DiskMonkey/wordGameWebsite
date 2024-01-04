@@ -28,5 +28,5 @@ var startWebServer = function startWebServer()
 	console.log('Server started at http://localhost:' + port);
 }
 
-//module.exports.startWebServer = startWebServer;
-startWebServer()
+module.exports.startWebServer = startWebServer;
+// startWebServer()
