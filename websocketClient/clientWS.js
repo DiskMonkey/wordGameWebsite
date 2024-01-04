@@ -2,13 +2,13 @@ function initWebSocket()
 {
 	return new Promise(function (resolve, reject)
 	{
-		var ws = new WebSocket('ws://localhost:5050'); 
+		var ws = new WebSocket('ws://3.91.255.112:5050');
 		ws.onopen = () =>
 		{
 			console.log('Connection opened!');
 			resolve(ws);
 		}
-		
+
 		ws.onmessage = ({ data }) => console.log("Unsigned Data: " + data);
 		ws.onclose = function ()
 		{
