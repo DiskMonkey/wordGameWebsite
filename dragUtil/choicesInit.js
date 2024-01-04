@@ -1,5 +1,5 @@
 var NUM_ANSWERS = 3 //TODO: make this choosable by client on prev page
-containerElem = document.getElementById("containerAnswers")
+containerElem = document.getElementById("allAnswersContainer")
 
 for (var i = 0; i < NUM_ANSWERS; i++)
 {

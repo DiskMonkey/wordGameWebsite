@@ -9,55 +9,68 @@
 
 
 
-    <div id="slotParent">
+<div id="slotParent">
 
-        <div id="slot0" class="answerSlot">
-            Slot0
-        </div>
+    <div id="slot0" class="answerSlot">
+        -->
+    </div>
 
-        <div class="slotBreak"></div>
+    <div class="slotBreak"></div>
 
-        <div id="slot1" class="answerSlot">
-            Slot1
-        </div>
+    <div id="slot1" class="answerSlot">
+        Average
+    </div>
 
-        <div class="slotBreak"></div>
+    <div class="slotBreak"></div>
 
-        <div id="slot2" class="answerSlot">
-            Slot2
-        </div>
-
-
+    <div id="slot2" class="answerSlot">
+        <--
     </div>
 
 
-
-    <div id="containerAnswers">
-
-        <!-- <div id="1answers" class="singleAnswerContainer">
-
-            <div class="answers" > test1 </div>
-        </div>
-
-        <div id="2answers" class="singleAnswerContainer">
-            <div class="answers" > test2 </div>
-        </div>
-
-        <div id="3answers" class="singleAnswerContainer">
-            <div class="answers" > test3 </div>
-        </div> -->
-
-    </div>
+</div>
 
 
-    <script src=" https://cdn.jsdelivr.net/npm/interactjs@1.10.21/dist/interact.min.js"></script>
-    <script src="tracker.js"></script>
-    <script src="interactTest.js" type="module"></script>
-    <script src="drag.js"></script>
-    <script src="clientWS.js"></script>
-    <script src="choicesInit.js"></script>
-    <script src="getWords.js"></script>
+
+<div id="allAnswersContainer">
+
     <!--
+        <div id="0answerContainer" class="singleAnswerContainer">
+            <div id="0answers" class="answers" > test1 </div>
+        </div>
+
+        <div id="1answerContainer" class="singleAnswerContainer">
+            <div id="1answers" class="answers" > test2 </div>
+        </div>
+
+        <div id="2answerContainer" class="singleAnswerContainer">
+            <div id="2answers" class="answers" > test3 </div>
+        </div>
+    -->
+
+</div>
+
+<div id="previousSolutionsContainer">
+    <table id="previousSolutionsTable">
+        <tr>
+            <th>--></th>
+            <th>Average</th>
+            <th><--</th>
+        </tr>
+
+    </table>
+</div>
+
+<script src=" https://cdn.jsdelivr.net/npm/interactjs@1.10.21/dist/interact.min.js"></script>
+<script src="slotTracker.js"></script>
+<script src="choicesInit.js"></script>
+<script src="interactTest.js"></script>
+<script src="drag.js"></script>
+<script src="clientWS.js"></script>
+<script src="progressTracker.js"></script>
+<script src="getWords.js"></script>
+
+<!--
     <script src="../websocketClient/clientWS.js"></script>
     <script src="../websocketClient/getWords.js"></script> -->
 
@@ -65,6 +78,6 @@
 
 
 
-    <!-- <link href=" https://cdn.jsdelivr.net/npm/interactjs@1.10.21/dist/api/styles/jsdoc-default.min.css " rel="stylesheet"> -->
+<!-- <link href=" https://cdn.jsdelivr.net/npm/interactjs@1.10.21/dist/api/styles/jsdoc-default.min.css " rel="stylesheet"> -->
 
 </html>

@@ -1,3 +1,4 @@
+slotContainer = document.getElementById("slotParent")
 numSlots = 3 //when i generalize, this value needs to be set
 
 //  slotOccupiedBy[index] = the text of the answer
@@ -15,12 +16,33 @@ function setSlotEmpty(slotIndex)
 function setSlotOccupied(slotIndex, item)
 {
     slotOccupiedBy[slotIndex] = item
-    console.log(slotOccupiedBy)
 }
 
 function getSlotOccupations()
 {
     return slotOccupiedBy
+}
+
+function getStringSlotOccupations()
+{
+    wordSolutions = []
+
+    for (var i = 0; i < slotOccupiedBy.length; i++)
+    {
+        wordSolutions.push(slotOccupiedBy[i].innerHTML)
+    }
+
+    return wordSolutions
+}
+
+function getNumSlots()
+{
+    return numSlots
+}
+
+function isSlotOccupied(slotIndex)
+{
+    return (slotOccupiedBy[slotIndex] != null)
 }
 
 function isAllSlotsOccupied()
@@ -33,3 +55,4 @@ function isAllSlotsOccupied()
     }
     return true
 }
+

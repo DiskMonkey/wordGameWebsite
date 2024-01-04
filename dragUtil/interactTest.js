@@ -1,6 +1,11 @@
 let slotParent = document.getElementById("slotParent")
+let allAnswersContainer = document.getElementById("allAnswersContainer")
+
 let slotChildren = slotParent.children
-let snapTargets = [returnToSender]
+let answerChildren = allAnswersContainer.children
+
+let snapTargets = []
+
 for (var i = 0; i < slotChildren.length; i++)
 {
 	var slot = slotChildren[i];
@@ -14,13 +19,15 @@ for (var i = 0; i < slotChildren.length; i++)
 	snapTargets.push({ x: ((rect.left + rect.right) / 2) + window.scrollX, y: ((rect.top + rect.bottom) / 2) + window.scrollY, range: 75 })
 }
 
-function returnToSender()
+for (var i = 0; i < answerChildren.length; i++)
 {
-	//todo: returns the original pixel location of the word, using element.id
+	var answer = answerChildren[i];
+	var rect = answer.getBoundingClientRect()
+	snapTargets.push({ x: ((rect.left + rect.right) / 2) + window.scrollX, y: ((rect.top + rect.bottom) / 2) + window.scrollY, range: 75 })
 }
 
 const snapToSlot = interact.modifiers.snap({
-	origin: {x: 0, y: 0},
+	origin: { x: 0, y: 0 },
 	endOnly: true,
 	targets: snapTargets,
 })
@@ -52,7 +59,15 @@ answers.draggable({
 
 			if (event.dragLeave != null)
 			{
-				setSlotEmpty(event.dragLeave.id.slice(4))
+				let slotID = event.dragLeave.id
+				let index = slotID.slice(4)
+				let occupation = getSlotOccupations()[index]
+
+				if (occupation != null && occupation.id == event.target.id)
+				{
+					setSlotEmpty(event.dragLeave.id.slice(4))
+				}
+
 			}
 		}
 	},
@@ -69,8 +84,10 @@ answerSlot.dropzone({
 		// 	+ ' was dropped into '
 		// 	+ event.target.id)
 
+		let index = event.target.id.slice(4) //magic string is the index of the slot
 
-		setSlotOccupied(event.target.id.slice(4), event.relatedTarget.innerHTML)
+		popOutOccupation(index)
+		setSlotOccupied(index, event.relatedTarget)
 
 		if (isAllSlotsOccupied())
 		{
@@ -85,7 +102,25 @@ answerSlot.dropzone({
 
 
 
+function popOutOccupation(index) //pops out the answer if it is currently in a slot
+{
+	if (isSlotOccupied(index))
+	{
+		let occupation = getSlotOccupations()[index]
+		occupation.style.top = 60 + 'px'
+	}
+}
 
+function popOutAllOccupations() //also sets slots as empty.
+{
+	for (var i = 0; i < getNumSlots(); i++)
+	{
+		popOutOccupation(i)
+		setSlotEmpty(i)
+	}
+
+	answers.reflow({ name: 'drag', axis: 'xy' })
+}
 
 function prevent(e)
 {

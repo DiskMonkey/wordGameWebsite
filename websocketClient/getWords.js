@@ -5,7 +5,6 @@ numChoices = 3 // need to generalize this to any number of input
 choiceList = []
 for (var i = 0; i < numChoices; i++)
 {
-    console.log(document.getElementById(i + "answers"))
     choiceList.push(document.getElementById(i + "answers"))
 }
 
@@ -32,7 +31,12 @@ function onReceive(data) {
             }
             break
         case "check3response":
-            console.log("code here")
+            if (parsedJson['response'] == true)
+            {
+                newSolutionFound()
+                message = { 'code': "get3" }
+                ws.send(JSON.stringify(message))
+            }
             break
         default:
             console.log("Unknown Code: ", parsedJson['code'])
@@ -42,7 +46,8 @@ function onReceive(data) {
 
 function checkSolution()
 {
-    slotOccupations = getSlotOccupations()
+    slotOccupations = getStringSlotOccupations()
+
     message = {
         'code': "check3",
         'solution': slotOccupations

@@ -1,5 +1,7 @@
-#containerAnswers {
+/* 'answers' refer to the words the user gets */
+#allAnswersContainer {
   user-select: none;
+  -webkit-user-select: none;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -24,7 +26,9 @@
   width: fit-content;
 }
 
+/* 'slot' refers to where the user puts their words */
 #slotParent{
+  font-family: monospace;
   display: flex;
   width: auto;
   background-color: gray;
@@ -49,4 +53,19 @@
 
 .slotBreak{
   padding: 10px;
+}
+
+/* this refers to the table that tracks previous solutions */
+#previousSolutionsContainer{
+  background-color: rgba(250, 235, 215, 0.452);
+  display: flex;
+  justify-content: center;
+  align-items: center; /* To align vertically, if needed */
+}
+
+table, th, td {
+  font-family: monospace;
+  font-size: large;
+  border: 2px solid black;
+  padding: 2px;
 }
