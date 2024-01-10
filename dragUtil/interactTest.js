@@ -107,7 +107,7 @@ function popOutOccupation(index) //pops out the answer if it is currently in a s
 	if (isSlotOccupied(index))
 	{
 		let occupation = getSlotOccupations()[index]
-		occupation.style.top = 60 + 'px'
+		occupation.style.top = 80 + 'px'
 	}
 }
 

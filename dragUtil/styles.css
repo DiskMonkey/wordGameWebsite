@@ -1,30 +1,10 @@
-/* 'answers' refer to the words the user gets */
-#allAnswersContainer {
-  user-select: none;
-  -webkit-user-select: none;
-  height: 100%;
+#timer{
   display: flex;
   justify-content: center;
-  align-items: center; /* To align vertically, if needed */
-  background-color: antiquewhite;
+  font-size: large;
+  background-color: rgb(188, 188, 188);
 }
-.singleAnswerContainer {
-  background-color: rosybrown;
-  padding: 10px;
-  min-height: 20px;
-  min-width: 70px;
-  height: fit-content;
-  width: fit-content;
-  align-items: center;
-  border: thick ridge black;
-}
-.answers {
-  background-color: rgb(232, 189, 232);
-  z-index: 1; /*needs to be greater than z-index of answerSlot */
-  font-size: 1vw;
-  height: fit-content;
-  width: fit-content;
-}
+
 
 /* 'slot' refers to where the user puts their words */
 #slotParent{
@@ -54,6 +34,36 @@
 .slotBreak{
   padding: 10px;
 }
+
+/* 'answers' refer to the words the user gets */
+#allAnswersContainer {
+  user-select: none;
+  -webkit-user-select: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* To align vertically, if needed */
+  background-color: antiquewhite;
+}
+.singleAnswerContainer {
+  background-color: rosybrown;
+  padding: 10px;
+  min-height: 20px;
+  min-width: 70px;
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
+  border: thick ridge black;
+}
+.answers {
+  background-color: rgb(232, 189, 232);
+  z-index: 1; /*needs to be greater than z-index of answerSlot */
+  font-size: 1vw;
+  height: fit-content;
+  width: fit-content;
+}
+
+
 
 /* this refers to the table that tracks previous solutions */
 #previousSolutionsContainer{
