@@ -64,6 +64,21 @@
 }
 
 
+#buttonContainer{
+  display: flex;
+  width: auto;
+  background-color: rgb(212, 212, 212);
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* these are the buttons that reset the board, etc */
+.gameButtons{
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
 
 /* this refers to the table that tracks previous solutions */
 #previousSolutionsContainer{

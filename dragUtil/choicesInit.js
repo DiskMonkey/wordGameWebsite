@@ -11,11 +11,20 @@ for (var i = 0; i < NUM_ANSWERS; i++)
     draggableAnswer.id = i + "answers"
     draggableAnswer.className = "answers"
 
+
+
     var testContent = document.createTextNode("test" + i)
     draggableAnswer.appendChild(testContent)
 
     singleAnswerContainer.appendChild(draggableAnswer)
 
     containerElem.appendChild(singleAnswerContainer)
+}
 
+for (var i = 0; i < NUM_ANSWERS; i++)
+{
+    let draggableAnswer = document.getElementById(i + "answers")
+    let rect = draggableAnswer.getBoundingClientRect()
+    draggableAnswer.setAttribute("startingStyleTop", rect.top)
+    draggableAnswer.setAttribute("startingStyleLeft", rect.left)
 }

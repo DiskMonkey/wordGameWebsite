@@ -53,8 +53,7 @@ answers.draggable({
 
 			if (!checkVisible(elem))
 			{
-				console.log("Offscreen elem")
-				//TODO: Return elem to initial position.
+				resetAnswer(elem)
 			}
 
 			if (event.dragLeave != null)
@@ -102,13 +101,31 @@ answerSlot.dropzone({
 
 
 
+function resetAnswer(elem)
+{
+	elem.style.top = elem.getAttribute("startingStyleTop") + "px"
+	elem.style.left = elem.getAttribute("startingStyleLeft") + "px"
+}
+
 function popOutOccupation(index) //pops out the answer if it is currently in a slot
 {
 	if (isSlotOccupied(index))
 	{
 		let occupation = getSlotOccupations()[index]
-		occupation.style.top = 80 + 'px'
+		resetAnswer(occupation)
 	}
+}
+
+function resetAllAnswers()
+{
+	for (var i = 0; i < answerChildren.length; i++)
+	{
+		answer = answerChildren[i].firstChild
+		resetAnswer(answer)
+		setSlotEmpty(i)
+	}
+
+	answers.reflow({ name: 'drag', axis: 'xy' })
 }
 
 function popOutAllOccupations() //also sets slots as empty.
@@ -120,7 +137,9 @@ function popOutAllOccupations() //also sets slots as empty.
 	}
 
 	answers.reflow({ name: 'drag', axis: 'xy' })
+
 }
+
 
 function prevent(e)
 {

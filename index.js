@@ -10,6 +10,7 @@ var startWebServer = function startWebServer()
 
 	app.use(express.static(path.join(__dirname, 'dragUtil')));
 	app.use(express.static(path.join(__dirname, 'websocketClient')));
+	app.use(express.static(path.join(__dirname, 'button')));
 	app.use(express.static(path.join(__dirname, 'timer')));
 
 	// add folders to be possibly sent using the below format:
