@@ -10,13 +10,22 @@ function dateToTime(d)
 
     output = minutes + ":" + seconds
 
-    if (minutes < 1 && seconds < 30)
+    if (date.getTime() < 30000) //add more digits once there is less than 30 seconds (30,000 ms) left
     {
         milliseconds = date.getMilliseconds().toString().padStart(2, '3')
         output += "." + milliseconds
     }
 
     return (output)
+}
+
+function resetTimer() //should only be called after the timer is not running (b/c of race condition)
+{
+    if (timeLeft <= 0)
+    {
+        startTime = Date.now()
+        setTimeout(step, frameTime);
+    }
 }
 
 
@@ -30,11 +39,10 @@ function step()
 {
     var drift = Date.now() - expected; // the drift (positive for overshooting)
     if (drift > frameTime) {
-        console.log("Timer not updating quickly; using slow mode.")
-        timeLeft = (numSeconds * 1000) - (Date.now() - startTime)
+        console.log("Timer not updating quickly; tab might be inactive")
     }
 
-    timeLeft = timeLeft - Math.max(0, frameTime - drift)
+    timeLeft = (numSeconds * 1000) - (Date.now() - startTime)
     timerElem.innerHTML = dateToTime(timeLeft)
 
     expected += frameTime;
@@ -46,6 +54,7 @@ function step()
     else
     {
         timerElem.innerHTML = "Time's up!"
+        // console.log("Time passed (sec): " + ((Date.now() - startTime) / 1000))
     }
 }
 

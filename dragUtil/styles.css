@@ -14,6 +14,7 @@
   background-color: gray;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 .answerSlot{

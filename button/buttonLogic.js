@@ -11,3 +11,10 @@ var getNewWordsButton = document.getElementById("getNewWordsButton");
 var resetGameButton = document.getElementById("resetGameButton");
 
 addClickListenerToElem(positionResetButton, resetAllAnswers)
+addClickListenerToElem(getNewWordsButton, sendGet3)
+addClickListenerToElem(resetGameButton, sendCheckID)
+
+function resetGame()
+{
+
+}

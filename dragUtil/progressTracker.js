@@ -17,3 +17,10 @@ function addRowPrevAnsw(right, avr, left) //TODO: generalize to any number of in
     numTableRows++
 }
 
+function clearRows() //reset table for new game
+{
+    for (let i = 1; i < numTableRows; i++)
+    {
+        table.deleteRow(1)
+    }
+}
