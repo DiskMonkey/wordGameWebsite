@@ -2,7 +2,7 @@ let slotParent = document.getElementById("slotParent")
 let allAnswersContainer = document.getElementById("allAnswersContainer")
 
 let slotChildren = slotParent.children
-let answerChildren = allAnswersContainer.children
+// let answerChildren = allAnswersContainer.children
 
 let snapTargets = []
 
@@ -21,8 +21,8 @@ for (var i = 0; i < slotChildren.length; i++)
 
 for (var i = 0; i < answerChildren.length; i++)
 {
-	var answer = answerChildren[i];
-	var rect = answer.getBoundingClientRect()
+	var answerChild = answerChildren[i];
+	var rect = answerChild.getBoundingClientRect()
 	snapTargets.push({ x: ((rect.left + rect.right) / 2) + window.scrollX, y: ((rect.top + rect.bottom) / 2) + window.scrollY, range: 75 })
 }
 
@@ -103,8 +103,8 @@ answerSlot.dropzone({
 
 function resetAnswer(elem)
 {
-	elem.style.top = elem.getAttribute("startingStyleTop") + "px"
-	elem.style.left = elem.getAttribute("startingStyleLeft") + "px"
+	elem.style.top = elem.getAttribute("startingStyleY") + "px"
+	elem.style.left = elem.getAttribute("startingStyleX") + "px"
 }
 
 function popOutOccupation(index) //pops out the answer if it is currently in a slot
@@ -120,8 +120,8 @@ function resetAllAnswers()
 {
 	for (var i = 0; i < answerChildren.length; i++)
 	{
-		answer = answerChildren[i].firstChild
-		resetAnswer(answer)
+		answerChild = answerChildren[i].firstChild
+		resetAnswer(answerChild)
 		setSlotEmpty(i)
 	}
 

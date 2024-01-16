@@ -1,5 +1,6 @@
 var NUM_ANSWERS = 3 //TODO: make this choosable by client on prev page
-containerElem = document.getElementById("allAnswersContainer")
+let containerElem = document.getElementById("allAnswersContainer")
+let answerChildren = containerElem.children
 
 for (var i = 0; i < NUM_ANSWERS; i++)
 {
@@ -15,16 +16,34 @@ for (var i = 0; i < NUM_ANSWERS; i++)
 
     var testContent = document.createTextNode("test" + i)
     draggableAnswer.appendChild(testContent)
+    draggableAnswer.style.position = "absolute"
 
     singleAnswerContainer.appendChild(draggableAnswer)
 
     containerElem.appendChild(singleAnswerContainer)
+
+
 }
+
 
 for (var i = 0; i < NUM_ANSWERS; i++)
 {
-    let draggableAnswer = document.getElementById(i + "answers")
-    let rect = draggableAnswer.getBoundingClientRect()
-    draggableAnswer.setAttribute("startingStyleTop", rect.top)
-    draggableAnswer.setAttribute("startingStyleLeft", rect.left)
+    var answerChild = answerChildren[i];
+    let draggableText = answerChild.firstChild
+
+    let answerChildRect = answerChild.getBoundingClientRect()
+    let draggableTextRect = draggableText.getBoundingClientRect()
+
+    textWidthOffset = draggableTextRect.width / 2
+    textHeightOffset = draggableTextRect.height / 2
+
+    let startY = ((answerChildRect.top + answerChildRect.bottom) / 2) + window.scrollY - textHeightOffset
+    let startX = ((answerChildRect.left + answerChildRect.right) / 2) + window.scrollX - textWidthOffset
+
+    draggableText.setAttribute("startingStyleY", startY)
+    draggableText.setAttribute("startingStyleX", startX)
+
+    draggableText.style.top = startY + "px"
+	draggableText.style.left = startX + "px"
 }
+
