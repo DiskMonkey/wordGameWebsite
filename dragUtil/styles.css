@@ -33,7 +33,7 @@
 }
 
 .slotBreak{
-  padding: 10px;
+  padding: 30px;
 }
 
 /* 'answers' refer to the words the user gets */
@@ -60,6 +60,7 @@
   background-color: rgb(232, 189, 232);
   z-index: 1; /*needs to be greater than z-index of answerSlot */
   font-size: 1vw;
+  padding: 0.2vw;
   height: fit-content;
   width: fit-content;
 }

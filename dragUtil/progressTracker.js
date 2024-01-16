@@ -4,7 +4,6 @@ let numTableRows = 1
 function newSolutionFound() //TODO: generalize to any number of slots
 {
     let solution = getStringSlotOccupations()
-    popOutAllOccupations()
     addRowPrevAnsw(solution[0], solution[1], solution[2])
 }
 

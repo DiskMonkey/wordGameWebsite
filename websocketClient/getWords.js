@@ -61,6 +61,8 @@ function onReceive(data)
             {
                 choiceList[i].innerHTML = parsedJson['response'][i]
             }
+            initStartingCoord()
+            popOutAllOccupations()
             break
         case "check3response":
             if (parsedJson['response'] == true)

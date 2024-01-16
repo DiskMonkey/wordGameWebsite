@@ -26,24 +26,29 @@ for (var i = 0; i < NUM_ANSWERS; i++)
 }
 
 
-for (var i = 0; i < NUM_ANSWERS; i++)
+function initStartingCoord()
 {
-    var answerChild = answerChildren[i];
-    let draggableText = answerChild.firstChild
+    for (var i = 0; i < NUM_ANSWERS; i++)
+    {
+        var answerChild = answerChildren[i];
+        let draggableText = answerChild.firstChild
 
-    let answerChildRect = answerChild.getBoundingClientRect()
-    let draggableTextRect = draggableText.getBoundingClientRect()
+        let answerChildRect = answerChild.getBoundingClientRect()
+        let draggableTextRect = draggableText.getBoundingClientRect()
 
-    textWidthOffset = draggableTextRect.width / 2
-    textHeightOffset = draggableTextRect.height / 2
+        textWidthOffset = draggableTextRect.width / 2
+        textHeightOffset = draggableTextRect.height / 2
 
-    let startY = ((answerChildRect.top + answerChildRect.bottom) / 2) + window.scrollY - textHeightOffset
-    let startX = ((answerChildRect.left + answerChildRect.right) / 2) + window.scrollX - textWidthOffset
+        let startY = ((answerChildRect.top + answerChildRect.bottom) / 2) + window.scrollY - textHeightOffset
+        let startX = ((answerChildRect.left + answerChildRect.right) / 2) + window.scrollX - textWidthOffset
 
-    draggableText.setAttribute("startingStyleY", startY)
-    draggableText.setAttribute("startingStyleX", startX)
+        draggableText.setAttribute("startingStyleY", startY)
+        draggableText.setAttribute("startingStyleX", startX)
 
-    draggableText.style.top = startY + "px"
-	draggableText.style.left = startX + "px"
+        draggableText.style.top = startY + "px"
+        draggableText.style.left = startX + "px"
+    }
 }
+initStartingCoord()
+
 

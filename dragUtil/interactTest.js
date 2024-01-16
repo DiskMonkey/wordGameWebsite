@@ -125,7 +125,7 @@ function resetAllAnswers()
 		setSlotEmpty(i)
 	}
 
-	answers.reflow({ name: 'drag', axis: 'xy' })
+	// answers.reflow({ name: 'drag', axis: 'xy' })
 }
 
 function popOutAllOccupations() //also sets slots as empty.
