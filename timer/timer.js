@@ -29,7 +29,7 @@ function resetTimer() //should only be called after the timer is not running (b/
 }
 
 
-let numSeconds = 10
+let numSeconds = 60
 var frameTime = 50; // ms
 var startTime = Date.now()
 var expected = startTime + frameTime;
