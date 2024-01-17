@@ -70,6 +70,10 @@ function onReceive(data)
                 newSolutionFound()
                 sendGet3()
             }
+            else
+            {
+                //do stuff like breaking streak, notifying user, etc
+            }
             break
         default:
             console.log("Unknown Code: ", parsedJson['code'])

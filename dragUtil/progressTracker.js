@@ -22,4 +22,5 @@ function clearRows() //reset table for new game
     {
         table.deleteRow(1)
     }
+    numTableRows = 1
 }
