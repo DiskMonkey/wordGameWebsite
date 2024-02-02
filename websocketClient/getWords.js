@@ -59,7 +59,7 @@ function onReceive(data)
         case "get3response":
             for (var i = 0; i < numChoices; i++)
             {
-                choiceList[i].innerHTML = parsedJson['response'][i]
+                choiceList[i].firstChild.innerHTML = parsedJson['response'][i]
             }
             initStartingCoord()
             popOutAllOccupations()

@@ -25,7 +25,7 @@ function logSlotOccupations()
     console.log(out)
 }
 
-function setSlotEmpty(slotIndex)
+function setSlotEmpty(slotIndex) //this breaks if the word is too big (because the hitbax is too big) TODO: Fix slot hitbox issues
 {
     slotOccupiedBy[slotIndex] = null
     // logSlotOccupations()

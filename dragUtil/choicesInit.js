@@ -14,7 +14,9 @@ for (var i = 0; i < NUM_ANSWERS; i++)
 
 
 
-    var testContent = document.createTextNode("test" + i)
+    var testContent = document.createElement("p")
+    testContent.innerHTML = "test" + i
+    testContent.style = "margin: auto; justify-self: center;"
     draggableAnswer.appendChild(testContent)
     draggableAnswer.style.position = "absolute"
 
