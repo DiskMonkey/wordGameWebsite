@@ -106,13 +106,11 @@ function sendCheckID() //called if the user wants to restart the game
     }
 }
 
-function checkSolution() //gets called from interact.js when all slots are full
+function check3Solution() //gets called from interact.js when all slots are full
 {
-    slotOccupations = getStringSlotOccupations()
-
     message = {
-        'code': "check3", //needs to be generalized
-        'solution': slotOccupations,
+        'code': "check3",
+        'solution': check3ComposeMessage(),
         'id': myid
     }
 

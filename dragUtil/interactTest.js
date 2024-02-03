@@ -1,8 +1,5 @@
 let slotParent = document.getElementById("slotParent")
-let allAnswersContainer = document.getElementById("allAnswersContainer")
-
 let slotChildren = slotParent.children
-// let answerChildren = allAnswersContainer.children
 
 let snapTargets = []
 
@@ -16,7 +13,7 @@ for (var i = 0; i < slotChildren.length; i++)
 	}
 
 	var rect = slot.getBoundingClientRect()
-	snapTargets.push({ x: ((rect.left + rect.right) / 2) + window.scrollX, y: ((rect.top + rect.bottom) / 2) + window.scrollY, range: 75 })
+	snapTargets.push({ x: ((rect.left + rect.right) / 2) + window.scrollX, y: ((rect.top + rect.bottom) / 2) + window.scrollY, range: 150})
 }
 
 for (var i = 0; i < answerChildren.length; i++)
@@ -90,7 +87,7 @@ answerSlot.dropzone({
 
 		if (isAllSlotsOccupied())
 		{
-			checkSolution()
+			check3Solution()
 		}
 	}
 })

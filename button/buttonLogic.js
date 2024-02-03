@@ -6,13 +6,13 @@ function addClickListenerToElem(elem, funct)
         elem.attachEvent('onclick', funct);
 }
 
-var positionResetButton = document.getElementById("positionResetButton");
-var getNewWordsButton = document.getElementById("getNewWordsButton");
-var resetGameButton = document.getElementById("resetGameButton");
+// var positionResetButton = document.getElementById("positionResetButton");
+// var getNewWordsButton = document.getElementById("getNewWordsButton");
+// var resetGameButton = document.getElementById("resetGameButton");
 
-addClickListenerToElem(positionResetButton, resetAllAnswers)
-addClickListenerToElem(getNewWordsButton, sendGet3)
-addClickListenerToElem(resetGameButton, sendCheckID)
+// addClickListenerToElem(positionResetButton, resetAllAnswers)
+// addClickListenerToElem(getNewWordsButton, sendGet3)
+// addClickListenerToElem(resetGameButton, sendCheckID)
 
 function resetGame()
 {

@@ -10,7 +10,7 @@ function dateToTime(d)
 
     output = minutes + ":" + seconds
 
-    if (date.getTime() < 30000) //add more digits once there is less than 30 seconds (30,000 ms) left
+    if (date.getTime() < 10000) //add more digits once there is less than 10 seconds (10,000 ms) left
     {
         milliseconds = date.getMilliseconds().toString().padStart(2, '3')
         output += "." + milliseconds

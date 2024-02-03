@@ -1,5 +1,5 @@
 slotContainer = document.getElementById("slotParent")
-numSlots = 3 //when i generalize, this value needs to be set
+numSlots = 1 //when i generalize, this value needs to be set
 
 //  slotOccupiedBy[index] = the answer elem
 slotOccupiedBy = []
@@ -48,7 +48,7 @@ function getStringSlotOccupations()
 
     for (var i = 0; i < slotOccupiedBy.length; i++)
     {
-        wordSolutions.push(slotOccupiedBy[i].innerHTML)
+        wordSolutions.push(slotOccupiedBy[i].firstChild.textContent)
     }
 
     return wordSolutions
