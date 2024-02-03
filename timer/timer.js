@@ -1,5 +1,6 @@
-timerElem = document.getElementById("timer")
-
+let timerElem = document.getElementById("timer")
+let historyElem = document.getElementById("previousSolutionsTable")
+let allAnswersContainer = document.getElementById("allAnswersContainer")
 
 function dateToTime(d)
 {
@@ -28,7 +29,6 @@ function resetTimer() //should only be called after the timer is not running (b/
     }
 }
 
-
 let numSeconds = 60
 var frameTime = 50; // ms
 var startTime = Date.now()
@@ -54,8 +54,18 @@ function step()
     else
     {
         timerElem.innerHTML = "Time's up!"
-        // console.log("Time passed (sec): " + ((Date.now() - startTime) / 1000))
+        timerDone()
     }
 }
 
 setTimeout(step, frameTime);
+
+function timerDone()
+{
+    historyElem.style.display = "table" //remove the 'display: none;'
+    allAnswersContainer.style.display = "none"
+
+    //TODO: make 'play again' button visible
+    //TODO: make the score and streak move to the center
+
+}

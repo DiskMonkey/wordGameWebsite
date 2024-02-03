@@ -112,14 +112,20 @@
 /* this refers to the table that tracks previous solutions */
 #previousSolutionsContainer{
   background-color: rgb(255, 255, 255);
-  display: flex;
   justify-content: center;
   align-items: center; /* To align vertically, if needed */
+  display: flex;
+}
+
+#previousSolutionsTable{
+  /* TODO: make each column take up the same width */
+  text-align: center;
+  width: 75%;
   display: none;
 }
 
 table, th, td {
-  font-family: monospace;
+  font-family: 'Times New Roman', Times, serif;
   font-size: large;
   border: 2px solid black;
   padding: 2px;

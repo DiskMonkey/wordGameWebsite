@@ -1,6 +1,6 @@
 var NUM_ANSWERS = 3 //TODO: make this choosable by client on prev page
-let containerElem = document.getElementById("allAnswersContainer")
-let answerChildren = containerElem.children
+// let allAnswersContainer = document.getElementById("allAnswersContainer") // in timer.js
+let answerChildren = allAnswersContainer.children
 
 for (var i = 0; i < NUM_ANSWERS; i++)
 {
@@ -22,7 +22,7 @@ for (var i = 0; i < NUM_ANSWERS; i++)
 
     singleAnswerContainer.appendChild(draggableAnswer)
 
-    containerElem.appendChild(singleAnswerContainer)
+    allAnswersContainer.appendChild(singleAnswerContainer)
 
 
 }

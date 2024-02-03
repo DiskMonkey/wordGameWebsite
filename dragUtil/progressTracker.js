@@ -1,15 +1,20 @@
-let table = document.getElementById("previousSolutionsTable")
+// let historyElem = document.getElementById("previousSolutionsTable") //already defined in timer
 let numTableRows = 1
 
-function newSolutionFound() //TODO: generalize to any number of slots
+function newSolutionFound(numSlots)
 {
-    let solution = getStringSlotOccupations()
-    addRowPrevAnsw(solution[0], solution[1], solution[2])
+    increaseScore()
+    increaseStreak()
+    if (numSlots == 3) // TODO: generalize to any number of slots
+    {
+        let solution = check3ComposeMessage()
+        addRowPrevAnsw(solution[0], solution[2], solution[1])
+    }
 }
 
 function addRowPrevAnsw(right, avr, left) //TODO: generalize to any number of inputs (taken as list)
 {
-    let row = table.insertRow(-1)
+    let row = historyElem.insertRow(-1)
     row.insertCell(0).innerHTML = right
     row.insertCell(1).innerHTML = avr
     row.insertCell(2).innerHTML = left
@@ -20,7 +25,7 @@ function clearRows() //reset table for new game
 {
     for (let i = 1; i < numTableRows; i++)
     {
-        table.deleteRow(1)
+        historyElem.deleteRow(1)
     }
     numTableRows = 1
 }

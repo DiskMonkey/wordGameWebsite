@@ -67,12 +67,13 @@ function onReceive(data)
         case "check3response":
             if (parsedJson['response'] == true)
             {
-                newSolutionFound()
+                newSolutionFound(3)
                 sendGet3()
             }
             else
             {
-                //do stuff like breaking streak, notifying user, etc
+                breakStreak()
+                //TODO: turn screen red
             }
             break
         default:
@@ -108,6 +109,7 @@ function sendCheckID() //called if the user wants to restart the game
 
 function check3Solution() //gets called from interact.js when all slots are full
 {
+
     message = {
         'code': "check3",
         'solution': check3ComposeMessage(),
