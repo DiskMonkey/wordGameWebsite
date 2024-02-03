@@ -1,20 +1,34 @@
-#timer{
+#infoBar{
   display: flex;
-  justify-content: center;
-  font-size: large;
-  background-color: rgb(188, 188, 188);
+  justify-content: space-between;
+  margin-bottom: 5%;
 }
 
+#streakText{
+  font-size: large;
+}
+
+#timer{
+
+  font-size: xx-large;
+
+}
+
+#scoreText{
+  font-size: large;
+}
 
 /* 'slot' refers to where the user puts their words */
 #slotParent{
-  font-family: monospace;
+  /* font-family: monospace; */
   display: flex;
   width: auto;
   /* background-color: gray; */
   justify-content: center;
   align-items: center;
   user-select: none;
+
+  margin-bottom: 5%;
 }
 
 .answerSlot{
@@ -48,7 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center; /* To align vertically, if needed */
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   gap: 60px;
 }
 .singleAnswerContainer {
@@ -70,7 +84,7 @@
   font-size: 20px;
 
 
-  padding: 13px; /* needs to be equal to .answerSlot padding + border thickness */
+  padding: 15px; /* needs to be greater than  .answerSlot padding + border thickness */
 
   border-radius:16px;
   min-height: 30px;
@@ -97,10 +111,11 @@
 
 /* this refers to the table that tracks previous solutions */
 #previousSolutionsContainer{
-  background-color: rgba(250, 235, 215, 0.452);
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center; /* To align vertically, if needed */
+  display: none;
 }
 
 table, th, td {
