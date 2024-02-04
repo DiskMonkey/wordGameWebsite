@@ -68,13 +68,15 @@ function onReceive(data)
             if (parsedJson['response'] == true)
             {
                 newSolutionFound(3)
+                turnGreen()
                 sendGet3()
             }
             else
             {
+                turnRed()
                 breakStreak()
-                //TODO: turn screen red
             }
+            popOutAllOccupations()
             break
         default:
             console.log("Unknown Code: ", parsedJson['code'])

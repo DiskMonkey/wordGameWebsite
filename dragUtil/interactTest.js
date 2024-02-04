@@ -1,5 +1,5 @@
-let slotParent = document.getElementById("slotParent")
-let slotChildren = slotParent.children
+// let slotContainer = document.getElementById("slotParent") //defined in slotTracker
+let slotChildren = slotContainer.children
 
 let snapTargets = []
 
