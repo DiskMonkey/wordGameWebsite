@@ -1,1 +1,1 @@
-This repository contains the client side code for the word vector game.
+This repository contains the front-end code for the word vector game.
