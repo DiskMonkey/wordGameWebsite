@@ -1,10 +1,10 @@
-function addClickListenerToElem(elem, funct)
-{
-    if (elem.addEventListener)
-        elem.addEventListener("click", funct, false);
-    else if (el.attachEvent)
-        elem.attachEvent('onclick', funct);
-}
+// function addClickListenerToElem(elem, funct) // this function is defined in pointsAudio
+// {
+//     if (elem.addEventListener)
+//         elem.addEventListener("click", funct, false);
+//     else if (el.attachEvent)
+//         elem.attachEvent('onclick', funct);
+// }
 
 // var positionResetButton = document.getElementById("positionResetButton");
 // var getNewWordsButton = document.getElementById("getNewWordsButton");

@@ -1,17 +1,22 @@
 let streakElem = document.getElementById("streakText")
 let scoreElem = document.getElementById("scoreText")
 let curStreak = 0
+let highestStreak = 0
 let curScore = 0
-let scoreUpdateDelay = 75 //the ms that the score takes to increase by 1
+let scoreIncreaseAmount = 3
+let streakMultiplier = 3
+let totalScoreUpdateTime = 1 // in sec (it is nice when this equals totalTimeAudio, defined in pointsAudio.js)
+var scoreUpdateDelay = NaN
 
 function increaseScore()
 {
-    curScore += curStreak + 1
-
-
+    curScore += (curStreak * streakMultiplier) + scoreIncreaseAmount
     scoreDiff = curScore - readScore()
 
-    setTimeout(updateScore, scoreUpdateDelay)
+
+    scale(scoreDiff)
+    scoreUpdateDelay = (totalScoreUpdateTime * 1000) / scoreDiff //the ms that the score takes to increase by 1
+    updateScore()
 }
 
 function updateScore()
@@ -29,6 +34,12 @@ function updateScore()
 function increaseStreak()
 {
     curStreak++
+
+    if (curStreak > highestStreak)
+    {
+        highestStreak = curStreak
+    }
+
     streakElem.textContent = "Streak: " + curStreak
 }
 
