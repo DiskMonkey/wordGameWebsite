@@ -2,7 +2,7 @@
 // {
 //     if (elem.addEventListener)
 //         elem.addEventListener("click", funct, false);
-//     else if (el.attachEvent)
+//     else if (elem.attachEvent)
 //         elem.attachEvent('onclick', funct);
 // }
 
