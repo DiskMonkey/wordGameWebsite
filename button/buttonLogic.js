@@ -1,14 +1,7 @@
-// function addClickListenerToElem(elem, funct) // this function is defined in pointsAudio
-// {
-//     if (elem.addEventListener)
-//         elem.addEventListener("click", funct, false);
-//     else if (elem.attachEvent)
-//         elem.attachEvent('onclick', funct);
-// }
+//this module implicitly assumes that there is only one slot (unlike the drag module for example)
 
-// var positionResetButton = document.getElementById("positionResetButton");
-// var getNewWordsButton = document.getElementById("getNewWordsButton");
-// var resetGameButton = document.getElementById("resetGameButton");
+addClickListenerToElem(slotChildren[0], resetGame)
+
 
 // addClickListenerToElem(positionResetButton, resetAllAnswers)
 // addClickListenerToElem(getNewWordsButton, sendGet3)
@@ -16,5 +9,16 @@
 
 function resetGame()
 {
-
+    resetTimer()
+    clearScore()
+    requestNewGame()
 }
+
+
+// function addClickListenerToElem(elem, funct) // this function is defined in pointsAudio
+// {
+//     if (elem.addEventListener)
+//         elem.addEventListener("click", funct, false);
+//     else if (elem.attachEvent)
+//         elem.attachEvent('onclick', funct);
+// }

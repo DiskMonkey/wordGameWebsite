@@ -9,18 +9,10 @@ for (var i = 0; i < numChoices; i++)
     choiceList.push(document.getElementById(i + "answers"))
 }
 
-initWebSocket().then(function (wsLocal) //sends initial message
+initWebSocket().then(function (wsLocal) //sets up websocket
 {
-    wsLocal.onmessage = ({ data }) => onReceive(data)
-
     ws = wsLocal
-    message = {
-        'code': "getid",
-        'task': chosenTask
-    } // need to generalize this
-
-    wsLocal.send(JSON.stringify(message))
-    //TODO: need to start timer
+    ws.onmessage = ({ data }) => onReceive(data)
 });
 
 function onReceive(data)
@@ -39,23 +31,23 @@ function onReceive(data)
             }
             ws.send(JSON.stringify(message))
             break
-        case "checkidresponse":
-            if (parsedJson['response'])
-            {
-                message = {
-                'code': "getid",
-                'task': chosenTask
-                } // need to generalize this
-                ws.send(JSON.stringify(message))
-                resetAllAnswers()
-                clearRows()
-                resetTimer()
-            }
-            else
-            {
-                console.log("This user is currently ingame, so a new game cannot be started.")
-            }
-            break
+        // case "checkidresponse": //this case should never be recieved except for debugging purposes.
+        //     if (parsedJson['response'])
+        //     {
+        //         message = {
+        //         'code': "getid",
+        //         'task': chosenTask
+        //         } // need to generalize this
+        //         ws.send(JSON.stringify(message))
+        //         resetAllAnswers()
+        //         clearRows()
+        //         resetTimer()
+        //     }
+        //     else
+        //     {
+        //         console.log("This user is currently ingame, so a new game cannot be started.")
+        //     }
+        //     break
         case "get3response":
             for (var i = 0; i < numChoices; i++)
             {
@@ -84,6 +76,16 @@ function onReceive(data)
 
 }
 
+function requestNewGame() //uses code 'getid'
+{
+    message = {
+        'code': "getid",
+        'task': chosenTask
+    } // need to generalize this
+
+    ws.send(JSON.stringify(message))
+}
+
 function sendGet3()
 {
     if (myid != null)
@@ -96,7 +98,7 @@ function sendGet3()
     }
 }
 
-function sendCheckID() //called if the user wants to restart the game
+function sendCheckID() //called to validate the id already recieved. Function should not be called unless debugging.
 {
     if (myid != null)
     {

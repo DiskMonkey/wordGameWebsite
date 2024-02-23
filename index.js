@@ -14,6 +14,7 @@ var startWebServer = function startWebServer()
 	app.use(express.static(path.join(__dirname, 'timer')));
 	app.use(express.static(path.join(__dirname, 'scoring')));
 	app.use(express.static(path.join(__dirname, 'animation')));
+	app.use(express.static(path.join(__dirname, 'keyboardSupport')));
 
 	// add folders to be possibly sent using the below format:
 	// app.use(express.static(path.join(__dirname, 'webSocket')));

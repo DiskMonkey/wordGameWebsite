@@ -8,6 +8,14 @@ let streakMultiplier = 3
 let totalScoreUpdateTime = 1 // in sec (it is nice when this equals totalTimeAudio, defined in pointsAudio.js)
 var scoreUpdateDelay = NaN
 
+
+function clearScore()
+{
+    curScore = 0
+    breakStreak()
+    scoreElem.textContent = "Score: 0"
+}
+
 function increaseScore()
 {
     curScore += (curStreak * streakMultiplier) + scoreIncreaseAmount

@@ -82,13 +82,7 @@ answerSlot.dropzone({
 
 		let index = event.target.id.slice(4) //magic string is the index of the slot
 
-		popOutOccupation(index)
-		setSlotOccupied(index, event.relatedTarget)
-
-		if (isAllSlotsOccupied())
-		{
-			check3Solution()
-		}
+		answerChosen(index, event.relatedTarget)
 	}
 })
 	.on('dropactivate', function (event)

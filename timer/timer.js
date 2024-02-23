@@ -25,15 +25,16 @@ function resetTimer() //should only be called after the timer is not running (b/
     if (timeLeft <= 0)
     {
         startTime = Date.now()
+        timeLeft = new Date(numSeconds * 1000);
         setTimeout(step, frameTime);
     }
 }
 
-let numSeconds = 60
+let numSeconds = 10
 var frameTime = 50; // ms
-var startTime = Date.now()
+var startTime = Date.now() //set again when resetTimer is called
 var expected = startTime + frameTime;
-let timeLeft = new Date(numSeconds * 1000);
+let timeLeft = null;
 
 function step()
 {
@@ -58,7 +59,6 @@ function step()
     }
 }
 
-setTimeout(step, frameTime);
 
 function timerDone()
 {

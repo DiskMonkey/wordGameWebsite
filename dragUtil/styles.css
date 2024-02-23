@@ -140,6 +140,7 @@
   text-align: center;
   width: 75%;
   display: none;
+  table-layout: fixed;
 }
 
 table, th, td {
