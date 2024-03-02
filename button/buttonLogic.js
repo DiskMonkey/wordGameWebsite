@@ -1,5 +1,7 @@
 //this module implicitly assumes that there is only one slot (unlike the drag module for example)
 
+
+showRestartGame()
 addClickListenerToElem(slotChildren[0], resetGame)
 
 
@@ -9,11 +11,21 @@ addClickListenerToElem(slotChildren[0], resetGame)
 
 function resetGame()
 {
-    resetTimer()
-    clearScore()
-    requestNewGame()
+    if (resetTimer())
+    {
+        requestNewGame()
+        hideRestartGame()
+        hideHistoryShowAnswers()
+        clearScore()
+        clearHistory()
+    }
 }
 
+function hideHistoryShowAnswers()
+{
+    historyElem.style.display = "none" //remove the 'display: none;'
+    allAnswersContainer.style.display = "flex"
+}
 
 // function addClickListenerToElem(elem, funct) // this function is defined in pointsAudio
 // {

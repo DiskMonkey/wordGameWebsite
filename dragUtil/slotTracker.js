@@ -1,4 +1,4 @@
-slotContainer = document.getElementById("slotParent")
+// slotContainer = document.getElementById("slotParent") //defined in timer
 numSlots = 1 //when i generalize, this value needs to be set
 
 //  slotOccupiedBy[index] = the answer elem

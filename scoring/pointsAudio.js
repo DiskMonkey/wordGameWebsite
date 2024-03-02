@@ -5,7 +5,7 @@ const totalTimeAudio = 1 // seconds of audio
 
 // addClickListenerToElem(audioButton, tone)
 
-function tone()
+function testtone()
 {
     console.log(scale(3))
 }

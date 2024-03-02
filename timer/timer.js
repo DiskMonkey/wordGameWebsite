@@ -2,6 +2,9 @@ let timerElem = document.getElementById("timer")
 let historyElem = document.getElementById("previousSolutionsTable")
 let allAnswersContainer = document.getElementById("allAnswersContainer")
 
+let slotContainer = document.getElementById("slotParent")
+let slotChildren = slotContainer.children
+
 function dateToTime(d)
 {
     let date = new Date(d)
@@ -20,17 +23,19 @@ function dateToTime(d)
     return (output)
 }
 
-function resetTimer() //should only be called after the timer is not running (b/c of race condition)
+function resetTimer() //should only be called after the timer is not running (b/c of race condition). returns false if called before timer runs out
 {
     if (timeLeft <= 0)
     {
         startTime = Date.now()
         timeLeft = new Date(numSeconds * 1000);
         setTimeout(step, frameTime);
+        return true
     }
+    else return false
 }
 
-let numSeconds = 10
+let numSeconds = 60
 var frameTime = 50; // ms
 var startTime = Date.now() //set again when resetTimer is called
 var expected = startTime + frameTime;
@@ -55,17 +60,27 @@ function step()
     else
     {
         timerElem.innerHTML = "Time's up!"
-        timerDone()
+        hideAnswersShowHistory()
     }
 }
 
 
-function timerDone()
+function hideAnswersShowHistory()
 {
     historyElem.style.display = "table" //remove the 'display: none;'
     allAnswersContainer.style.display = "none"
+    showRestartGame()
 
-    //TODO: make 'play again' button visible
     //TODO: make the score and streak move to the center
 
+}
+
+function showRestartGame() //this is run at the very start, and is undone when clicked. when the timer runs out, this is run again.
+{
+    slotChildren[0].textContent = "Click to Play!"
+}
+
+function hideRestartGame() //this function is called in buttonLogic when this is clicked.
+{
+    slotChildren[0].textContent = ""
 }
