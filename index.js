@@ -9,6 +9,8 @@ var startWebServer = function startWebServer()
 
 
 	app.use(express.static(path.join(__dirname, 'dragUtil')));
+	app.use(express.static(path.join(__dirname, 'htmlPages')));
+	app.use(express.static(path.join(__dirname, 'htmlHelperScripts')));
 	app.use(express.static(path.join(__dirname, 'websocketClient')));
 	app.use(express.static(path.join(__dirname, 'button')));
 	app.use(express.static(path.join(__dirname, 'timer')));
@@ -26,7 +28,7 @@ var startWebServer = function startWebServer()
 	app.listen(port);
 
 	app.get('/', function(req, res) {
-		res.sendFile(path.join(__dirname, '/dragUtil/dragTest.html'));
+		res.sendFile(path.join(__dirname, '/htmlPages/get3Page.html'));
 	});
 
 

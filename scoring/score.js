@@ -43,6 +43,9 @@ function increaseStreak()
 {
     curStreak++
 
+    triggerParticles()
+    increaseDensity()
+
     if (curStreak > highestStreak)
     {
         highestStreak = curStreak
@@ -54,6 +57,8 @@ function increaseStreak()
 function breakStreak()
 {
     curStreak = 0
+    resetDensity()
+
     streakElem.textContent = "Streak: " + curStreak
 }
 
