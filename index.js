@@ -28,7 +28,7 @@ var startWebServer = function startWebServer()
 	app.listen(port);
 
 	app.get('/', function(req, res) {
-		res.sendFile(path.join(__dirname, '/htmlPages/get3Page.html'));
+		res.sendFile(path.join(__dirname, '/htmlPages/get3InstructionPage.html'));
 	});
 
 
