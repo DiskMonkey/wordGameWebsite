@@ -2,7 +2,7 @@ function initWebSocket()
 {
 	return new Promise(function (resolve, reject)
 	{
-		var ws = new WebSocket('ws://18.215.179.87:5150'); //need to use wss when i upgrade to https
+		var ws = new WebSocket('ws://socket-nlb-ff0352c7da817418.elb.us-east-1.amazonaws.com:5150'); //need to use wss when i upgrade to https
 		// var ws = new WebSocket('ws://localhost:5150'); //for testing locally (these 2 lines are the only ones i need to change)
 		ws.onopen = () =>
 		{
